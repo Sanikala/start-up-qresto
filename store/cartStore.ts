@@ -18,8 +18,9 @@ interface CartStore {
   createOrder: () => void;
   updateOrderStatus: (status: Order['status']) => void;
   
-  initializeSplitPayment: (orderId: string, totalAmount: number) => void;
-  addContribution: (name: string, amount: number) => void;
+  initializeSplitPayment: (orderId: string, totalAmount: number, splitMode: 'even' | 'itemized') => void;
+  addContribution: (name: string, amount: number, items?: string[]) => void;
+  setSplitMode: (mode: 'even' | 'itemized') => void;
   clearSplitPayment: () => void;
 }
 
@@ -95,22 +96,23 @@ export const useCartStore = create<CartStore>((set, get) => ({
     }
   },
 
-  initializeSplitPayment: (orderId, totalAmount) => {
+  initializeSplitPayment: (orderId, totalAmount, splitMode = 'even') => {
     set({
       splitPayment: {
         orderId,
         totalAmount,
         paidAmount: 0,
+        splitMode,
         contributions: [],
       },
     });
   },
 
-  addContribution: (name, amount) => {
+  addContribution: (name, amount, items = []) => {
     const split = get().splitPayment;
     if (!split) return;
 
-    const newContributions = [...split.contributions, { name, amount }];
+    const newContributions = [...split.contributions, { name, amount, items }];
     const paidAmount = newContributions.reduce((sum, c) => sum + c.amount, 0);
 
     set({
@@ -118,6 +120,18 @@ export const useCartStore = create<CartStore>((set, get) => ({
         ...split,
         contributions: newContributions,
         paidAmount,
+      },
+    });
+  },
+
+  setSplitMode: (mode) => {
+    const split = get().splitPayment;
+    if (!split) return;
+    
+    set({
+      splitPayment: {
+        ...split,
+        splitMode: mode,
       },
     });
   },

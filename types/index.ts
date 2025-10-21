@@ -38,8 +38,10 @@ export interface SplitPayment {
   orderId: string;
   totalAmount: number;
   paidAmount: number;
+  splitMode: 'even' | 'itemized'; // New: Split evenly or pay for what you ordered
   contributions: {
     name: string;
     amount: number;
+    items?: string[]; // Optional: items they're paying for
   }[];
 }

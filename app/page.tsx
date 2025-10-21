@@ -5,79 +5,121 @@ import { QrCode, Utensils, CreditCard, Users } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+    <main className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-purple-50">
       <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+        {/* Hero Section */}
+        <div className="text-center mb-16 animate-fade-in">
+          <div className="inline-block mb-6">
+            <div className="text-7xl mb-4 animate-bounce">🍽️</div>
+          </div>
+          <h1 className="text-6xl font-bold bg-gradient-to-r from-orange-600 to-purple-600 bg-clip-text text-transparent mb-4">
             Welcome to QResto
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            QR-Based Dining Solution - Scan, Order, Pay
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            The future of dining - Scan, Order, and Pay seamlessly with our modern QR-based solution
           </p>
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/table/1">
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
-                <QrCode className="mr-2 h-5 w-5" />
-                Try Demo (Table 1)
+              <Button size="lg" className="gradient-orange text-white border-0 h-14 px-8 text-lg shadow-lg hover:shadow-xl transition-all">
+                <QrCode className="mr-2 h-6 w-6" />
+                Try Demo Now
               </Button>
             </Link>
+            <Button size="lg" variant="outline" className="h-14 px-8 text-lg border-2">
+              Learn More
+            </Button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          <Card>
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16">
+          <Card className="card-hover border-0 shadow-lg overflow-hidden">
+            <div className="h-2 gradient-orange"></div>
             <CardHeader>
-              <QrCode className="h-10 w-10 text-orange-500 mb-2" />
-              <CardTitle>QR Scan</CardTitle>
-              <CardDescription>
-                Scan table QR to view menu instantly
+              <div className="w-14 h-14 gradient-orange rounded-2xl flex items-center justify-center mb-4">
+                <QrCode className="h-7 w-7 text-white" />
+              </div>
+              <CardTitle className="text-xl">QR Scan</CardTitle>
+              <CardDescription className="text-base">
+                Instant access to menu with a simple scan
               </CardDescription>
             </CardHeader>
           </Card>
 
-          <Card>
+          <Card className="card-hover border-0 shadow-lg overflow-hidden">
+            <div className="h-2 gradient-blue"></div>
             <CardHeader>
-              <Utensils className="h-10 w-10 text-orange-500 mb-2" />
-              <CardTitle>Browse Menu</CardTitle>
-              <CardDescription>
-                Explore dishes and add to cart
+              <div className="w-14 h-14 gradient-blue rounded-2xl flex items-center justify-center mb-4">
+                <Utensils className="h-7 w-7 text-white" />
+              </div>
+              <CardTitle className="text-xl">Browse Menu</CardTitle>
+              <CardDescription className="text-base">
+                Explore dishes with beautiful imagery
               </CardDescription>
             </CardHeader>
           </Card>
 
-          <Card>
+          <Card className="card-hover border-0 shadow-lg overflow-hidden">
+            <div className="h-2 gradient-green"></div>
             <CardHeader>
-              <CreditCard className="h-10 w-10 text-orange-500 mb-2" />
-              <CardTitle>Pay with QR</CardTitle>
-              <CardDescription>
-                Generate payment QR or pay cash
+              <div className="w-14 h-14 gradient-green rounded-2xl flex items-center justify-center mb-4">
+                <CreditCard className="h-7 w-7 text-white" />
+              </div>
+              <CardTitle className="text-xl">Smart Payment</CardTitle>
+              <CardDescription className="text-base">
+                Multiple payment options at your fingertips
               </CardDescription>
             </CardHeader>
           </Card>
 
-          <Card>
+          <Card className="card-hover border-0 shadow-lg overflow-hidden">
+            <div className="h-2 bg-gradient-to-r from-pink-500 to-rose-500"></div>
             <CardHeader>
-              <Users className="h-10 w-10 text-orange-500 mb-2" />
-              <CardTitle>Split Bill</CardTitle>
-              <CardDescription>
-                Split payment with friends easily
+              <div className="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center mb-4">
+                <Users className="h-7 w-7 text-white" />
+              </div>
+              <CardTitle className="text-xl">Split Bill</CardTitle>
+              <CardDescription className="text-base">
+                Fair splitting - pay for what you ordered
               </CardDescription>
             </CardHeader>
           </Card>
         </div>
 
-        <div className="mt-16 text-center">
-          <h2 className="text-2xl font-semibold mb-4">Quick Test Routes</h2>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link href="/table/1">
-              <Button variant="outline">Table 1</Button>
-            </Link>
-            <Link href="/table/5">
-              <Button variant="outline">Table 5</Button>
-            </Link>
-            <Link href="/table/10">
-              <Button variant="outline">Table 10</Button>
-            </Link>
+        {/* Quick Access */}
+        <div className="mt-20 text-center">
+          <h2 className="text-3xl font-semibold mb-6 bg-gradient-to-r from-orange-600 to-purple-600 bg-clip-text text-transparent">
+            Quick Test Access
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {[1, 5, 10].map((table) => (
+              <Link key={table} href={`/table/${table}`}>
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-2 hover:border-orange-500 hover:text-orange-600 transition-all"
+                >
+                  <span className="text-2xl mr-2">🪑</span>
+                  Table {table}
+                </Button>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="text-center p-6">
+            <div className="text-4xl font-bold gradient-orange bg-clip-text text-transparent mb-2">Fast</div>
+            <p className="text-gray-600">Order in under 30 seconds</p>
+          </div>
+          <div className="text-center p-6">
+            <div className="text-4xl font-bold gradient-blue bg-clip-text text-transparent mb-2">Secure</div>
+            <p className="text-gray-600">Safe payment processing</p>
+          </div>
+          <div className="text-center p-6">
+            <div className="text-4xl font-bold gradient-green bg-clip-text text-transparent mb-2">Easy</div>
+            <p className="text-gray-600">Intuitive user experience</p>
           </div>
         </div>
       </div>
