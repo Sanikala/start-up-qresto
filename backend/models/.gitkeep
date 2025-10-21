@@ -1,0 +1,12 @@
+// Database Models
+// Define schemas for Restaurant, Table, MenuItem, Order, Payment, etc.
+
+// Future implementation with Prisma:
+// - Restaurant model
+// - Table model
+// - MenuItem model
+// - Order model
+// - Payment model
+// - SplitPayment model
+
+export {};

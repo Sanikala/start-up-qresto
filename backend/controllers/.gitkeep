@@ -1,0 +1,10 @@
+// Order Controller
+// Handle order creation, updates, and status management
+
+// Future implementation:
+// - createOrder()
+// - getOrderById()
+// - updateOrderStatus()
+// - getOrdersByTable()
+
+export {};

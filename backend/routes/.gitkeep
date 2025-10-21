@@ -1,0 +1,11 @@
+// API Routes
+// Define endpoints for orders, payments, tables, and menu
+
+// Future implementation:
+// - /api/orders
+// - /api/payments
+// - /api/tables
+// - /api/menu
+// - /api/split-payments
+
+export {};
