@@ -108,19 +108,34 @@ export default function Home() {
         </div>
 
         {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="text-center p-6">
-            <div className="text-4xl font-bold gradient-orange bg-clip-text text-transparent mb-2">Fast</div>
-            <p className="text-gray-600">Order in under 30 seconds</p>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl font-bold gradient-blue bg-clip-text text-transparent mb-2">Secure</div>
-            <p className="text-gray-600">Safe payment processing</p>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl font-bold gradient-green bg-clip-text text-transparent mb-2">Easy</div>
-            <p className="text-gray-600">Intuitive user experience</p>
-          </div>
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <Card className="border-0 shadow-xl overflow-hidden">
+            <div className="h-3 gradient-orange"></div>
+            <CardContent className="pt-8 pb-8 text-center">
+              <div className="text-5xl font-bold bg-gradient-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent mb-3">
+                Fast
+              </div>
+              <p className="text-gray-600 text-lg">Order in under 30 seconds</p>
+            </CardContent>
+          </Card>
+          <Card className="border-0 shadow-xl overflow-hidden">
+            <div className="h-3 gradient-blue"></div>
+            <CardContent className="pt-8 pb-8 text-center">
+              <div className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent mb-3">
+                Secure
+              </div>
+              <p className="text-gray-600 text-lg">Safe payment processing</p>
+            </CardContent>
+          </Card>
+          <Card className="border-0 shadow-xl overflow-hidden">
+            <div className="h-3 gradient-green"></div>
+            <CardContent className="pt-8 pb-8 text-center">
+              <div className="text-5xl font-bold bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent mb-3">
+                Easy
+              </div>
+              <p className="text-gray-600 text-lg">Intuitive user experience</p>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </main>
