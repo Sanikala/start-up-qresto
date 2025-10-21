@@ -83,12 +83,12 @@ export default function TablePage() {
       {/* Menu Content */}
       <div className="container mx-auto px-4 py-6">
         <Tabs defaultValue={menuCategories[0]} className="w-full">
-          <TabsList className="grid w-full grid-cols-5 mb-6 bg-white shadow-lg border-0 p-1 h-auto">
+          <TabsList className="grid w-full grid-cols-5 mb-6 bg-gray-100 shadow-lg border-0 p-1 h-auto rounded-xl">
             {menuCategories.map((category) => (
               <TabsTrigger 
                 key={category} 
                 value={category} 
-                className="text-xs sm:text-sm data-[state=active]:gradient-orange data-[state=active]:text-white rounded-lg py-3"
+                className="text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-orange-500 data-[state=active]:to-pink-500 data-[state=active]:text-white data-[state=active]:shadow-md rounded-lg py-3 transition-all duration-200"
               >
                 {category}
               </TabsTrigger>
